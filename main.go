@@ -51,7 +51,14 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("------------------")
 }
 
+var (
+	project = "http-timeout-error-handler"
+	version = "1.0.0-SNAPSHOT"
+)
+
 func main() {
+	fmt.Println("Project:", project)
+	fmt.Println("Version:", version)
 	http.HandleFunc("/", handleRequest)
 	http.ListenAndServe(":8000", nil)
 }

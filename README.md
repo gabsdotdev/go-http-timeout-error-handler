@@ -5,3 +5,11 @@
 ## VSCode Plugin used
 
 - Rest Client
+
+## Docker Compose Commands
+
+Update build and start app:
+
+```shell
+docker-compose up --build
+```
