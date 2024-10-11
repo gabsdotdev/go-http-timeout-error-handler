@@ -13,3 +13,9 @@ Update build and start app:
 ```shell
 docker-compose up --build
 ```
+
+## Docker Run Commands
+
+```shell
+docker run -p 8000:8000 go-http-timeout-error-handler_goapp
+```

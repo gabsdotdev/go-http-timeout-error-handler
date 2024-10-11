@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/base64"
 	"fmt"
+	"log"
 	"net/http"
 	"strconv"
 	"time"
@@ -37,6 +38,11 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 
 	// Set the Content-Type header to application/json
 	w.Header().Set("Content-Type", "application/json")
+	// set CORS headers
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+	//w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+
 	// Set status code
 	w.WriteHeader(statusCode)
 
@@ -45,10 +51,8 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 		w.Write(body)
 	}
 
-	fmt.Println("Path:", r.URL.Path)
-	fmt.Println("Método HTTP:", r.Method)
-	fmt.Println("Status Code:", statusCode)
-	fmt.Println("------------------")
+	logMessage := fmt.Sprintf("Path: %s, Método HTTP: %s, Status Code: %d", r.URL.Path, r.Method, statusCode)
+	log.Println(logMessage)
 }
 
 var (
