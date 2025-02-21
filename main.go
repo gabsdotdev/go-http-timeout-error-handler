@@ -12,7 +12,13 @@ import (
 func handleRequest(w http.ResponseWriter, r *http.Request) {
 	// Parse query parameters
 	queryParams := r.URL.Query()
-	statusCode, err := strconv.Atoi(queryParams.Get("status"))
+
+	statusStr := queryParams.Get("status")
+	if len(statusStr) >= 3 {
+		statusStr = statusStr[:3]
+	}
+
+	statusCode, err := strconv.Atoi(statusStr)
 	if err != nil {
 		statusCode = http.StatusOK // Default status code is 200 OK
 	}

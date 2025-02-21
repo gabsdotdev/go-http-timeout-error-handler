@@ -1,6 +1,14 @@
-POST  http://localhost:8000/any-path?response_time=2&status=200&body=ewogICAgIm5hbWUiOiAiR2FicmllbGwgTG9wZXMiCn0K
+@baseUrl = http://localhost:8000
+
+### POST
+POST  {{baseUrl}}/any-path?response_time=2&status=200&body=ewogICAgIm5hbWUiOiAiR2FicmllbGwgTG9wZXMiCn0K
 Content-Type: application/json
+Authorization: Bearer test
 
 {
     "name": "Gabriell Lopes"
 }
+
+### GET
+GET {{baseUrl}}/any-path?response_time=2&status=503123456789abcdef
+Content-Type: application/json
